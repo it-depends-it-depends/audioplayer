@@ -80,12 +80,27 @@ body {
 }
 
 /* ------------------ SKIP BUTTONS ------------------ */
-.control-btn.prev,
-.control-btn.next {
-  font-size: 22px;   /* Emoji Größe */
-  color: white;      /* Symbolfarbe weiß */
+.control-btn.skip-btn {
+  font-size: 26px;   /* Größe der Emoji */
+  color: white;      /* Symbolfarbe */
   line-height: 1;    /* zentriert */
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
 }
+
+.control-btn.skip-btn:hover {
+  background: #1db954;
+  transform: scale(1.05);
+}
+
 
 
 
