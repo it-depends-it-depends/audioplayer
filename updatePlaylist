@@ -67,6 +67,17 @@ function loadTrack(index) {
   updatePlaylist();
 }
 
+  audio.addEventListener("play", () => {
+  playBtn.classList.remove("play");
+  playBtn.classList.add("pause");
+});
+
+audio.addEventListener("pause", () => {
+  playBtn.classList.remove("pause");
+  playBtn.classList.add("play");
+});
+
+
 function togglePlay() {
   if (audio.paused) {
     audio.play();
