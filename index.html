@@ -5,52 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Playlist Player</title>
 <link rel="stylesheet" href="style.css">
-
-
 </head>
-
 <body>
 
 <div class="player">
   <img id="cover" class="cover" src="cover1.jpg" alt="Cover">
-
   <div id="title" class="title">Song 1</div>
-
   <audio id="audio"></audio>
 
   <div class="controls">
-  <button class="control-btn" onclick="prev()"></button>
-
-  <button
-    class="control-btn play"
-    id="playBtn"
-    onclick="togglePlay()">
-  </button>
-
-  <button class="control-btn" onclick="next()"></button>
-</div>
-
+    <button class="control-btn prev" onclick="prev()"></button>
+    <button class="control-btn play" id="playBtn" onclick="togglePlay()"></button>
+    <button class="control-btn next" onclick="next()"></button>
+  </div>
 
   <div class="playlist" id="playlist"></div>
 </div>
 
 <script>
 const tracks = [
-  {
-    title: "Track 1",
-    file: "01 Track 1_de.mp3",
-    cover: "cover1.jpeg"
-  },
-  {
-    title: "Track 2",
-    file: "01 Track 1_de.mp3",
-    cover: "cover1.jpeg"
-  },
-  {
-    title: "Track 3",
-    file: "01 Track 1_de.mp3",
-    cover: "cover1.jpeg"
-  }
+  { title: "Track 1", file: "01 Track 1_de.mp3", cover: "cover1.jpeg" },
+  { title: "Track 2", file: "02 Track 2_de.mp3", cover: "cover2.jpeg" },
+  { title: "Track 3", file: "03 Track 3_de.mp3", cover: "cover3.jpeg" }
 ];
 
 let current = 0;
@@ -58,7 +34,9 @@ const audio = document.getElementById("audio");
 const cover = document.getElementById("cover");
 const title = document.getElementById("title");
 const playlistDiv = document.getElementById("playlist");
+const playBtn = document.getElementById("playBtn");
 
+/* Funktionen */
 function loadTrack(index) {
   current = index;
   audio.src = tracks[index].file;
@@ -67,13 +45,9 @@ function loadTrack(index) {
   updatePlaylist();
 }
 
-
 function togglePlay() {
-  if (audio.paused) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
+  if (audio.paused) audio.play();
+  else audio.pause();
 }
 
 function next() {
@@ -94,15 +68,12 @@ function updatePlaylist() {
     const div = document.createElement("div");
     div.textContent = track.title;
     if (index === current) div.classList.add("active");
-    div.onclick = () => {
-      loadTrack(index);
-      audio.play();
-    };
+    div.onclick = () => { loadTrack(index); audio.play(); };
     playlistDiv.appendChild(div);
   });
 }
 
-audio.addEventListener("ended", next);
+/* Play/Pause Button */
 audio.addEventListener("play", () => {
   playBtn.classList.remove("play");
   playBtn.classList.add("pause");
@@ -113,7 +84,10 @@ audio.addEventListener("pause", () => {
   playBtn.classList.add("play");
 });
 
-// Initial load
+/* Song Ende */
+audio.addEventListener("ended", next);
+
+/* Initial */
 loadTrack(0);
 playBtn.classList.add("play");
 </script>
