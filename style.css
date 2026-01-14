@@ -48,12 +48,25 @@ body {
   transition: background 0.2s, transform 0.1s;
 }
 
+.control-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #222;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.1s;
+}
+
 .control-btn:hover {
   background: #1db954;
   transform: scale(1.05);
 }
 
-/* Play-Dreieck (zentriert) */
+/* Play-Dreieck */
 .control-btn.play::before {
   content: "";
   display: inline-block;
@@ -64,25 +77,24 @@ body {
   border-bottom: 10px solid transparent;
 }
 
-/* Pause-Symbol (zwei Balken, zentriert) */
+/* Pause-Symbol */
 .control-btn.pause::before {
   content: "";
   display: inline-block;
-  width: 14px;       /* Gesamtbreite für beide Balken */
+  width: 14px;
   height: 18px;
   background: linear-gradient(to right, white 5px, transparent 5px, transparent 9px, white 9px);
 }
 
 /* Skip Buttons */
-.control-btn.prev::before {
-  content: "⏮";
+.control-btn.prev::before,
+.control-btn.next::before {
+  content: "";  /* emojis werden per HTML gesetzt */
+  color: white;
   font-size: 22px;
+  line-height: 1;
 }
 
-.control-btn.next::before {
-  content: "⏭";
-  font-size: 22px;
-}
 
 
 .playlist {
