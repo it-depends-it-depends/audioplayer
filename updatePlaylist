@@ -116,6 +116,7 @@ audio.addEventListener("ended", next);
 
 // Initial load
 loadTrack(0);
+playBtn.classList.add("play");
 </script>
 
 </body>
