@@ -34,14 +34,13 @@ body {
   margin: 15px 0;
 }
 
+/* Grundstil für alle Control-Buttons */
 .control-btn {
   width: 52px;
   height: 52px;
   border-radius: 50%;
   background: #222;
   border: none;
-  color: white;
-  font-size: 22px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -54,7 +53,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Play / Pause */
+/* Play-Dreieck (zentriert) */
 .control-btn.play::before {
   content: "";
   display: inline-block;
@@ -63,16 +62,15 @@ body {
   border-left: 14px solid white;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  margin-left: 2px;
 }
 
+/* Pause-Symbol (zwei Balken, zentriert) */
 .control-btn.pause::before {
   content: "";
   display: inline-block;
-  width: 14px;
+  width: 14px;       /* Gesamtbreite für beide Balken */
   height: 18px;
-  background: white;
-  box-shadow: 20px 0 0 white;
+  background: linear-gradient(to right, white 5px, transparent 5px, transparent 9px, white 9px);
 }
 
 /* Skip Buttons */
@@ -85,6 +83,7 @@ body {
   content: "⏭";
   font-size: 22px;
 }
+
 
 .playlist {
   text-align: left;
